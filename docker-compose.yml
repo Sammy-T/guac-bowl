@@ -1,0 +1,21 @@
+services:
+  guacamole:
+    image: guacamole/guacamole
+    ports:
+      - 8080:8080
+    env_file: ./guacamole/.env
+    environment:
+      GUACD_HOSTNAME: guacd-host
+      POSTGRES_HOSTNAME: postgres-host
+    depends_on:
+      - guacd
+      - db
+
+  guacd:
+    image: guacamole/guacd
+    hostname: guacd-host
+
+  db:
+    build: ./guac-db
+    env_file: ./guac-db/.env
+    hostname: postgres-host
