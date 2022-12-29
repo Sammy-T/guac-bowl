@@ -18,4 +18,9 @@ services:
   db:
     build: ./guac-db
     env_file: ./guac-db/.env
+    volumes:
+      - guac-bowl-data:/var/lib/postgresql/data
     hostname: postgres-host
+
+volumes:
+  guac-bowl-data:
