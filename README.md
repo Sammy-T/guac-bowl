@@ -28,3 +28,4 @@ POSTGRES_DATABASE=some_db
 docker compose up -d
 ```
 The interface will run on the host's port `:8080/guacamole`
+The default user will be "guacadmin" with password "guacadmin".
